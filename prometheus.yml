@@ -1,0 +1,74 @@
+# my global config
+global:
+  scrape_interval:     15s # Set the scrape interval to every 15 seconds. Default is every 1 minute.
+  evaluation_interval: 15s # Evaluate rules every 15 seconds. The default is every 1 minute.
+  # scrape_timeout is set to the global default (10s).
+
+  # Attach these labels to any time series or alerts when communicating with
+  # external systems (federation, remote storage, Alertmanager).
+  external_labels:
+      monitor: 'codelab-monitor'
+
+# Load rules once and periodically evaluate them according to the global 'evaluation_interval'.
+rule_files:
+  # - "first.rules"
+  # - "second.rules"
+
+# A scrape configuration containing exactly one endpoint to scrape:
+# Here it's Prometheus itself.
+scrape_configs:
+  # The job name is added as a label `job=<job_name>` to any timeseries scraped from this config.
+  - job_name: 'prometheus'
+
+    # metrics_path defaults to '/metrics'
+    # scheme defaults to 'http'.
+
+    static_configs:
+      - targets: ['localhost:9090']
+
+  - job_name: 'docker'
+         # metrics_path defaults to '/metrics'
+         # scheme defaults to 'http'.
+
+    static_configs:
+      - targets:
+        - ssekilx5821.seki.rnd.ericsson.se:9323
+        - ssekilx5821.seki.rnd.ericsson.se:9100
+        - ssekilx5821.seki.rnd.ericsson.se:9200
+        - ssekilx5821.seki.rnd.ericsson.se:9300
+        - ssekilx5167.rnd.ki.sw.ericsson.se:9323
+        - ssekilx5167.rnd.ki.sw.ericsson.se:9100
+        - ssekilx5167.rnd.ki.sw.ericsson.se:9200
+        - ssekilx5167.rnd.ki.sw.ericsson.se:9300
+        - ssekilx5165.rnd.ki.sw.ericsson.se:9323
+        - ssekilx5165.rnd.ki.sw.ericsson.se:9100
+        - ssekilx5165.rnd.ki.sw.ericsson.se:9200
+        - ssekilx5165.rnd.ki.sw.ericsson.se:9300
+        - ssekilx5166.rnd.ki.sw.ericsson.se:9323
+        - ssekilx5166.rnd.ki.sw.ericsson.se:9100
+        - ssekilx5166.rnd.ki.sw.ericsson.se:9200
+        - ssekilx5166.rnd.ki.sw.ericsson.se:9300
+        - ssekilxv4807.rnd.ki.sw.ericsson.se:9323
+        - ssekilxv4807.rnd.ki.sw.ericsson.se:9100
+        - ssekilxv4807.rnd.ki.sw.ericsson.se:9200
+        - ssekilxv4807.rnd.ki.sw.ericsson.se:9300
+        - ssekilxv4808.rnd.ki.sw.ericsson.se:9323
+        - ssekilxv4808.rnd.ki.sw.ericsson.se:9100
+        - ssekilxv4808.rnd.ki.sw.ericsson.se:9200
+        - ssekilxv4808.rnd.ki.sw.ericsson.se:9300
+        - ssekilxv4809.rnd.ki.sw.ericsson.se:9323
+        - ssekilxv4809.rnd.ki.sw.ericsson.se:9100
+        - ssekilxv4809.rnd.ki.sw.ericsson.se:9200
+        - ssekilxv4809.rnd.ki.sw.ericsson.se:9300
+        - ssekilxv4810.rnd.ki.sw.ericsson.se:9323
+        - ssekilxv4810.rnd.ki.sw.ericsson.se:9100
+        - ssekilxv4810.rnd.ki.sw.ericsson.se:9200
+        - ssekilxv4810.rnd.ki.sw.ericsson.se:9300
+        - ssekilx5822.rnd.ki.sw.ericsson.se:9323
+        - ssekilx5822.rnd.ki.sw.ericsson.se:9100
+        - ssekilx5822.rnd.ki.sw.ericsson.se:9200
+        - ssekilx5822.rnd.ki.sw.ericsson.se:9300
+        - ssekilx5819.rnd.ki.sw.ericsson.se:9323
+        - ssekilx5819.rnd.ki.sw.ericsson.se:9100
+        - ssekilx5819.rnd.ki.sw.ericsson.se:9200
+        - ssekilx5819.rnd.ki.sw.ericsson.se:9300
